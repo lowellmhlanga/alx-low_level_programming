@@ -1,9 +1,12 @@
 #include "main.h"
 
 /**
-* main - Entry point
-*
-* Return : always 0
+ * main - Prints _putchar
+ * @void: Empty parameter list for main.
+ *
+ * Description: Prints _putchar w/out stdio
+ *
+ * Return: 0 for success
 */
 int main(void)
 {
