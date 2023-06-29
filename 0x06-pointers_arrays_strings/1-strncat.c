@@ -9,23 +9,25 @@
  * Return: pointer to dest
  **/
 
-char *_strncat(char *dest, char *src, int n)
-{
-	int i, j;
+#include <stdio.h>
 
-	i = 0;
+char* _strncat(char* dest, const char* src, int n) {
+    char* result = dest;  // Store the initial value of dest
 
-	while (dest[i] != '\0')
-		i++;
+    // Move the pointer to the end of dest
+    while (*dest != '\0') {
+        dest++;
+    }
 
-	for (j = 0; j < n; j++)
-	{
-		dest[i] = src[j];
-		i++;
-	}
+    // Copy characters from src to dest up to n bytes
+    while (n > 0 && *src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+        n--;
+    }
 
-	if (dest[i - 1] != '\0')
-		dest[i] = '\0';
+    *dest = '\0';  // Add the null-terminating character
 
-	return (dest);
+    return result;
 }
