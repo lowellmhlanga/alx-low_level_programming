@@ -5,29 +5,27 @@
  * @src: second string to copy from
  * @dest: string to be overwritten
  * @n: number of values to concatenate
- * Description: appends n number of values from src to end of dest
+ * Description: concatenates n number of values from src to end of dest
  * Return: pointer to dest
  **/
 
-#include <stdio.h>
+char *_strncat(char *dest, char *src, int n)
+{
+	int i, j;
 
-char* _strncat(char* dest, const char* src, int n) {
-    char* result = dest;  // Store the initial value of dest
+	i = 0;
 
-    // Move the pointer to the end of dest
-    while (*dest != '\0') {
-        dest++;
-    }
+	while (dest[i] != '\0')
+		i++;
 
-    // Copy characters from src to dest up to n bytes
-    while (n > 0 && *src != '\0') {
-        *dest = *src;
-        dest++;
-        src++;
-        n--;
-    }
+	for (j = 0; j < n; j++)
+	{
+		dest[i] = src[j];
+		i++;
+	}
 
-    *dest = '\0';  // Add the null-terminating character
+	if (dest[i - 1] != '\0')
+		dest[i] = '\0';
 
-    return result;
+	return (dest);
 }
