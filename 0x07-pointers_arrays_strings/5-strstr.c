@@ -1,6 +1,28 @@
 #include "main.h"
 
 /**
+ * compare - compares two strings
+ * @haystack: source string
+ * @needle: string being compared
+ * Description: checks if needle is at start of haystack
+ * Return: 1 if matches, 0 if not
+ **/
+
+int compare(char *haystack, char *needle)
+{
+	int i;
+
+	for (i = 0; needle[i] != '\0'; i++)
+	{
+		if (haystack[i] == '\0')
+			return (0);
+		if (haystack[i] != needle[i])
+			return (0);
+	}
+	return (1);
+}
+
+/**
  * _strstr - locates a substring
  * @haystack: source string
  * @needle: substring
